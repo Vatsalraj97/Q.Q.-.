@@ -1,3 +1,5 @@
+#4>2D Paths I
+
 # Calculate the number of unique paths in a 2D grid.
 # In a grid where a character moves only right or up, with 6 steps right and 6 steps up (total 12 steps),
 # the number of distinct paths is calculated using combinations (binomial coefficient),
