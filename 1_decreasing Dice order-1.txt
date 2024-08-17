@@ -1,0 +1,12 @@
+#1>decreasing Dice order-1
+from fractions import Fraction
+
+n=6
+P=0
+for i in range(1,n+1):
+    p=(1/6)*((6-i)/6)
+    P+=p
+P = Fraction(P).limit_denominator()
+print(P)
+
+
