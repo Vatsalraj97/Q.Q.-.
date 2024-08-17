@@ -1,0 +1,39 @@
+#3>Greedy Pirates
+import math
+
+# Set the number of pirates and total coins.
+N = 11
+Coins = 100
+
+# Initialize a matrix to track coin distribution among pirates for each proposal.
+mat = [[0 for _ in range(N)] for _ in range(N)]
+
+#initialisation condition
+mat[0][0]=100 
+
+# Iterate over each pirate starting from the least senior to the most senior.
+for i in range(0, N):
+    # Calculate the votes needed for a majority.
+    Votes = math.floor(i // 2)
+    Max_Coins = Coins  # Start with the total number of coins available.
+
+    # Distribute coins to secure the necessary votes.
+    for j in range(i + 1):
+        # If the previous pirate at this position received no coins, bribe this pirate.
+        if mat[i - 1][j] == 0:
+            mat[i][j] = 1
+            Votes -= 1
+            Max_Coins -= 1
+
+        # Once enough votes are secured, assign the remaining coins to the current pirate.
+        if Votes == 0:
+            mat[i][i] = Max_Coins
+            break
+
+# Print the matrix diagonally to show the coin distribution for each pirate's proposal.
+j = 1
+for i in mat:
+    print(i[:j])
+    j += 1
+
+
