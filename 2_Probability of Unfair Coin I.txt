@@ -1,0 +1,15 @@
+#2>Probability of Unfair Coin I
+from fractions import Fraction
+
+n=100
+ufc=1
+trials=10
+fc=n-ufc
+P_ufc=ufc/n
+p_fc=fc/n
+P_all_heads_fc=(0.5)**10
+P_all_heads_ufc=1
+P_all_heads=(P_ufc*P_all_heads_ufc)+(p_fc*P_all_heads_fc)
+P_ufc_all_heads=(P_all_heads_ufc*P_ufc)/P_all_heads
+
+print(Fraction(P_ufc_all_heads).limit_denominator())
