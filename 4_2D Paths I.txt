@@ -1,0 +1,19 @@
+# Calculate the number of unique paths in a 2D grid.
+# In a grid where a character moves only right or up, with 6 steps right and 6 steps up (total 12 steps),
+# the number of distinct paths is calculated using combinations (binomial coefficient),
+# which is the number of ways to choose 6 steps (either right or up) from the total 12 steps.
+import math
+
+# Set the number of moves right and moves up
+moves_right = 6
+moves_up = 6
+
+# Total number of steps
+total_steps = moves_right + moves_up
+
+# Use the math.comb function to calculate the binomial coefficient (n choose k)
+# Here n is total_steps and k is the number of one type of move (either right or up)
+result = math.comb(total_steps, moves_right)
+
+# Print the total number of unique paths
+print(result)
