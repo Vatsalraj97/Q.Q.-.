@@ -1,0 +1,18 @@
+#7>German Tanks 
+L1 = [38, 17, 59, 42, 97, 120]
+
+# Sort the list to find the maximum observed serial number
+L1.sort()
+
+# Find the maximum observed serial number
+Max = max(L1)
+
+# Calculate the average gap between observed serial numbers assuming uniform distribution
+# This represents the average distance between the 6 observed tanks if they partition the numbers uniformly
+Avg_gap = (Max - len(L1)) / len(L1)
+
+# Estimate the maximum tank number N using the observed maximum and the average gap
+Estimated_N = Max + Avg_gap
+
+# Print the estimated maximum serial number N
+print(Estimated_N)
