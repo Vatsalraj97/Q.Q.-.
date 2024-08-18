@@ -1,0 +1,36 @@
+#10>Chose Your Urn Wisely
+# Define the probabilities of choosing urn 1 or urn 2 initially
+P_X1 = 4/7  # Probability of initially choosing urn 1
+P_X2 = 3/7  # Probability of initially choosing urn 2
+
+# Expected payout if you stay with the same urn
+# For urn 1:
+# After drawing one $1 chip, there are 6 $10 chips and 3 $1 chips left
+E_P0_X1 = (6 * 10 + 3 * 1) / 9  # Expected payout if staying with urn 1
+
+# For urn 2:
+# After drawing one $1 chip, there are 7 $10 chips and 2 $1 chips left
+E_P0_X2 = (7 * 10 + 2 * 1) / 9  # Expected payout if staying with urn 2
+
+# Calculate the overall expected payout if staying with the initial urn
+E_P0 = E_P0_X1 * P_X1 + E_P0_X2 * P_X2  # Combine with the initial probabilities
+
+# Expected payout if you switch urns
+# If you initially picked urn 1 and then switch to urn 2, you pick from an untouched urn 2
+E_P1_X1 = (7 * 10 + 3 * 1) / 10  # Expected payout if switching after picking urn 1
+
+# If you initially picked urn 2 and then switch to urn 1, you pick from an untouched urn 1
+E_P1_X2 = (6 * 10 + 4 * 1) / 10  # Expected payout if switching after picking urn 2
+
+# Calculate the overall expected payout if switching urns
+E_P1 = E_P1_X1 * P_X1 + E_P1_X2 * P_X2  # Combine with the initial probabilities
+
+# Print the expected payouts
+print(f"Expected payout if you stay with the current urn: {E_P0}")
+print(f"Expected payout if you switch urns: {E_P1}")
+
+# Decision based on the comparison of expected payouts
+if E_P0 > E_P1:
+    print(f"You should not switch. The expected payout if you stay is higher: {E_P0}")
+else:
+    print(f"You should switch. The expected payout if you switch is higher: {E_P1}")
