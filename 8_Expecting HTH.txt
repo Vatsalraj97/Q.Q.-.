@@ -1,0 +1,17 @@
+#8> Expecting HTH
+from sympy import symbols, Eq, solve
+
+# Define the variable x, which represents the expected number of tosses to see HTH
+x = symbols('x')
+
+# Set up the equation based on the given probabilities and expected values
+# The equation is derived from the problem statement:
+# x = (1/2) * (x + 1) + (1/4) * x + (1/8) * (x + 3) + (1/8) * 3
+# Each term corresponds to the possible outcomes after each toss and the resulting expected values
+equation = Eq(x, (1/2) * (x + 1) + (1/4) * x + (1/8) * (x + 3) + (1/8) * 3)
+
+# Solve the equation for x, which will give us the expected number of tosses
+solution = solve(equation, x)
+
+# Output the solution, which is the average number of tosses required to see HTH
+print(solution[0])
