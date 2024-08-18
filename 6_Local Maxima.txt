@@ -1,0 +1,28 @@
+#6>Local Maxima
+import math
+from fractions import Fraction
+
+# Function to calculate the factorial of a number
+def fact(n):
+    return math.factorial(n)
+
+N = 14  # Total number of spots (or positions) in the sequence
+M = N - 2  # Number of positions where the local maxima can occur (excluding the two endpoints)
+
+# Case 1: Calculating the probability of a local maximum occurring at one of the middle spots
+# In the middle spots (2 to 13), a local maximum occurs if the number is larger than both its neighbors
+# There are 3! (6) possible ways to arrange three numbers, and only 2 of those will be local maxima (e.g., 213 or 312)
+PC1_maxima = 2 / fact(3)  # Probability of a local maximum at a middle spot
+EC1_maxima = PC1_maxima * M  # Expected number of local maxima at the middle spots (2 to 13)
+
+# Case 2: Calculating the probability of a local maximum occurring at one of the endpoints
+# At the endpoints (positions 1 and 14), a local maximum occurs if the number is larger than its only neighbor
+# There are 2! (2) possible ways to arrange two numbers, and only 1 of those will be a local maximum (e.g., 21)
+PC2_maxima = 1 / fact(2)  # Probability of a local maximum at an endpoint
+EC2_maxima = PC2_maxima * 2  # Expected number of local maxima at the endpoints (positions 1 and 14)
+
+# Total expected number of local maxima in the sequence
+E_maxima = EC1_maxima + EC2_maxima
+
+# Print the expected number of local maxima as a simplified fraction
+print(Fraction(E_maxima).limit_denominator())
