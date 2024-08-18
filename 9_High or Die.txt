@@ -1,0 +1,14 @@
+#9>High or Die
+n = 6  # Number of sides on the die
+
+E_x = 0  # Initialize the expected value E[N] to 0
+
+# Loop through each possible value of the first roll (from 1 to 6)
+for i in range(1, n + 1):
+    # Calculate the expected number of rolls needed given the first roll is i
+    # (6 / (7 - i)) gives the expected number of rolls needed to get a value at least as large as i
+    # Multiply by (1/6) because each first roll has equal probability of 1/6
+    E_x += (6 / (7 - i)) * (1 / 6)
+
+# Print the final expected value E[N]
+print(E_x)
